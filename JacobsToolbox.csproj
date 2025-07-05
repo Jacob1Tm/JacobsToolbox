@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0FC70D1-35A6-4FF1-89E0-D1BD4CBEAE5F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JacobsToolbox</RootNamespace>
+    <AssemblyName>JacobsToolbox</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>12</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>Z:\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Mirror">
+      <HintPath>Z:\Managed\Mirror.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>Z:\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API.cs" />
+    <Compile Include="CoinFlipEffect.cs" />
+    <Compile Include="CoinFlipEffects\BlackoutEffect.cs" />
+    <Compile Include="CoinFlipEffects\BlindAustralianEffect.cs" />
+    <Compile Include="CoinFlipEffects\EmptyMicrohidEffect.cs" />
+    <Compile Include="CoinFlipEffects\ExplodeEffect.cs" />
+    <Compile Include="CoinFlipEffects\FlashbangEffect.cs" />
+    <Compile Include="CoinFlipEffects\ForceWaveEffect.cs" />
+    <Compile Include="CoinFlipEffects\GetCuffedEffect.cs" />
+    <Compile Include="CoinFlipEffects\HpBoostEffect.cs" />
+    <Compile Include="CoinFlipEffects\HpDebuffEffect.cs" />
+    <Compile Include="CoinFlipEffects\InventoryResetEffect.cs" />
+    <Compile Include="CoinFlipEffects\LiveGrenadeEffect.cs" />
+    <Compile Include="CoinFlipEffects\NoHitEffect.cs" />
+    <Compile Include="CoinFlipEffects\NothingEffect.cs" />
+    <Compile Include="CoinFlipEffects\OldMansTouch.cs" />
+    <Compile Include="CoinFlipEffects\PinkCandySpawnEffect.cs" />
+    <Compile Include="CoinFlipEffects\PlayerScaleEffect.cs" />
+    <Compile Include="CoinFlipEffects\PlayerSwapEffect.cs" />
+    <Compile Include="CoinFlipEffects\RandomItemEffect.cs" />
+    <Compile Include="CoinFlipEffects\RoleSwapEffect.cs" />
+    <Compile Include="CoinFlipEffects\ScpfyEffect.cs" />
+    <Compile Include="CoinFlipEffects\SpectatorSwapEffect.cs" />
+    <Compile Include="CoinFlipEffects\TeslaTeleportEffect.cs" />
+    <Compile Include="CoinFlipEffects\VampireEffect.cs" />
+    <Compile Include="CoinFlipEffects\WayOutEffect.cs" />
+    <Compile Include="ConsoleCommands.cs" />
+    <Compile Include="EventHandlers\CustomKeybinds.cs" />
+    <Compile Include="EventHandlers\LabApiEvents.cs" />
+    <Compile Include="Patches\CheckSpawnPatch.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="CustomRoles\CustomRole.cs" />
+    <Compile Include="EventHandlers\KomarEvents.cs" />
+    <Compile Include="EventHandlers\General.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ExMod.Exiled">
+      <Version>9.6.1</Version>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony">
+      <Version>2.3.6</Version>
+    </PackageReference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Z:\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Z:\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath Condition="'$(OS)' == 'Windows_NT'">$(EXILED_REFERENCES)\UnityEngine.dll</HintPath>
+      <HintPath Condition="'$(OS)' != 'Windows_NT'">..\..\..\Exiled_Resources\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath Condition="'$(OS)' == 'Windows_NT'">$(EXILED_REFERENCES)\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath Condition="'$(OS)' != 'Windows_NT'">..\..\..\Exiled_Resources\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
