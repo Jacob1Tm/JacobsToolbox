@@ -33,7 +33,8 @@ public static class CoinFlipEffect
         { CoinFlipEffects.HpBoostEffect.Apply, pconfig.HpBoostEffectChance },
         { CoinFlipEffects.HpDebuffEffect.Apply, pconfig.HpDebuffEffectChance },
         { CoinFlipEffects.PlayerScaleEffect.Apply, pconfig.PlayerScaleEffectChance },
-        { CoinFlipEffects.InventoryResetEffect.Apply, pconfig.InventoryResetEffectChance}
+        { CoinFlipEffects.InventoryResetEffect.Apply, pconfig.InventoryResetEffectChance},
+        { CoinFlipEffects.RandomTpEffect.Apply, pconfig.RandomTpEffectChance },
     };
     public static void CoinEffect(Player ply)
     {

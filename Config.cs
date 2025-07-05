@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using Exiled.API.Enums;
 using Exiled.API.Interfaces;
 using UnityEngine;
 
@@ -87,5 +88,59 @@ namespace JacobsToolbox
         public int PlayerScaleEffectChance { get; set; } = 1;
         public Vector3 PlayerScale { get; set; } = new(1.13f, 0.5f, 1.13f);
         public int InventoryResetEffectChance { get; set; } = 1;
+        public int RandomTpEffectChance { get; set; } = 1;
+        [Description("List of locations where players can be teleported by Random Teleport Effect.")]
+        public HashSet<RoomType> RoomsToTeleport { get; set; } = new()
+        {
+            RoomType.EzCafeteria,
+            RoomType.EzCheckpointHallwayA,
+            RoomType.EzCheckpointHallwayB,
+            RoomType.EzConference,
+            RoomType.EzCrossing,
+            RoomType.EzCurve,
+            RoomType.EzDownstairsPcs,
+            RoomType.EzGateA,
+            RoomType.EzGateB,
+            RoomType.EzIntercom,
+            RoomType.EzPcs,
+            RoomType.EzStraight,
+            RoomType.EzTCross,
+            RoomType.EzUpstairsPcs,
+            RoomType.EzVent,
+            RoomType.Hcz049,
+            RoomType.Hcz079,
+            RoomType.Hcz096,
+            RoomType.Hcz106,
+            RoomType.Hcz939,
+            RoomType.HczArmory,
+            RoomType.HczCrossing,
+            RoomType.HczCurve,
+            RoomType.HczElevatorA,
+            RoomType.HczElevatorB,
+            RoomType.HczEzCheckpointA,
+            RoomType.HczEzCheckpointB,
+            RoomType.HczHid,
+            RoomType.HczNuke,
+            RoomType.HczStraight,
+            RoomType.HczTesla,
+            RoomType.HczTestRoom,
+            RoomType.Lcz173,
+            RoomType.Lcz330,
+            RoomType.Lcz914,
+            RoomType.LczAirlock,
+            RoomType.LczArmory,
+            RoomType.LczCafe,
+            RoomType.LczCheckpointA,
+            RoomType.LczCheckpointB,
+            RoomType.LczClassDSpawn,
+            RoomType.LczCrossing,
+            RoomType.LczCurve,
+            RoomType.LczGlassBox,
+            RoomType.LczPlants,
+            RoomType.LczStraight,
+            RoomType.LczTCross,
+            RoomType.LczToilets,
+            RoomType.Surface,
+        };
     }
 }

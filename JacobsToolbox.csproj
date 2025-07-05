@@ -71,6 +71,7 @@
     <Compile Include="CoinFlipEffects\PlayerScaleEffect.cs" />
     <Compile Include="CoinFlipEffects\PlayerSwapEffect.cs" />
     <Compile Include="CoinFlipEffects\RandomItemEffect.cs" />
+    <Compile Include="CoinFlipEffects\RandomTpEffect.cs" />
     <Compile Include="CoinFlipEffects\RoleSwapEffect.cs" />
     <Compile Include="CoinFlipEffects\ScpfyEffect.cs" />
     <Compile Include="CoinFlipEffects\SpectatorSwapEffect.cs" />
