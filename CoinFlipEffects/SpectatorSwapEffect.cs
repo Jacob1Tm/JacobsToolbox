@@ -14,6 +14,7 @@ public static class SpectatorSwapEffect
                 
         if (spectList.IsEmpty())
         {
+            CoinFlipEffect.CoinEffect(player);
             return;
         }
                 

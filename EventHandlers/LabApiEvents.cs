@@ -1,8 +1,10 @@
 ﻿using LabApi.Events.Arguments.PlayerEvents;
 using LabApi.Events.CustomHandlers;
-using LabApi.Features.Console;
 using Exiled.API.Features;
 using InventorySystem.Items.Keycards;
+using InventorySystem.Items.Pickups;
+using LabApi.Events.Arguments.ServerEvents;
+using LabApi.Features.Wrappers;
 using PlayerRoles;
 using UnityEngine;
 using UserSettings.ServerSpecific;
@@ -37,6 +39,15 @@ namespace JacobsToolbox.EventHandlers
                 ev.Message.Channel = VoiceChatChannel.RoundSummary;
                 ev.IsAllowed = true;
             }
+        }
+
+        public override void OnServerItemSpawning(ItemSpawningEventArgs ev)
+        {
+            if (ev.ItemType == ItemType.Coin)
+            {
+                ev.IsAllowed = false;
+            }
+            
         }
     }
 }

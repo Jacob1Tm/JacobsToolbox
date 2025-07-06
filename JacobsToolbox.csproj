@@ -79,6 +79,7 @@
     <Compile Include="CoinFlipEffects\ScpTpEffect.cs" />
     <Compile Include="CoinFlipEffects\ShitPantsEffect.cs" />
     <Compile Include="CoinFlipEffects\SpectatorSwapEffect.cs" />
+    <Compile Include="CoinFlipEffects\SummonAllayEffect.cs" />
     <Compile Include="CoinFlipEffects\TeslaTeleportEffect.cs" />
     <Compile Include="CoinFlipEffects\VampireEffect.cs" />
     <Compile Include="CoinFlipEffects\VaseEffect.cs" />

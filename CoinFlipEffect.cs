@@ -40,6 +40,7 @@ public static class CoinFlipEffect
         { CoinFlipEffects.ScpTpEffect.Apply, pconfig.ScpTpEffectChance },
         { CoinFlipEffects.VaseEffect.Apply, pconfig.VaseEffectChance },
         { CoinFlipEffects.DelayedExplosionEffect.Apply, pconfig.DelayedExplosionEffectChance },
+        { CoinFlipEffects.SummonAllayEffect.Apply, pconfig.SummonAllayEffectChance },
     };
     public static void CoinEffect(Player ply)
     {

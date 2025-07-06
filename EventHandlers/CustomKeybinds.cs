@@ -27,7 +27,7 @@ public class CustomKeybinds
             if (targetPickup == null)
                 return;
             Pickup pickup = Pickup.Get(targetPickup);
-            if (pickup.Type == ItemType.Coin && ply.IsScp && ply.CurrentItem.Type != ItemType.Coin)
+            if (pickup.Type == ItemType.Coin && ply.IsScp)
             {
                 Log.Debug("Picking up coin as SCP");
                 pickup.Destroy();

@@ -19,6 +19,7 @@ public static class PlayerSwapEffect
         if (playerList.IsEmpty())
         {
             Log.Debug("No other players available for swap.");
+            CoinFlipEffect.CoinEffect(player);
             return;
         }
 

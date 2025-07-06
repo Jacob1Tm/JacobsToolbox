@@ -8,6 +8,7 @@ using Scp939Handler = Exiled.Events.Handlers.Scp939;
 using Scp096Handler = Exiled.Events.Handlers.Scp096;
 using ServerHandler = Exiled.Events.Handlers.Server;
 using Scp914Handler = Exiled.Events.Handlers.Scp914;
+using MapHandler = Exiled.Events.Handlers.Map;
 using UserSettings.ServerSpecific;
 using LabApi.Events.CustomHandlers;
 using HarmonyLib;

@@ -11,8 +11,10 @@ using PlayerRoles;
 using Map = Exiled.API.Features.Map;
 using Round = LabApi.Features.Wrappers.Round;
 using Exiled.Events.EventArgs.Scp914;
+using Exiled.Events.EventArgs.Map;
 using Exiled.Events.Patches.Events.Player;
 using Exiled.Permissions.Commands.Permissions.Group;
+using LabApi.Events.Arguments.ServerEvents;
 using MEC;
 using PlayerRoles.PlayableScps.Subroutines;
 using Scp914;
@@ -163,6 +165,23 @@ namespace JacobsToolbox.EventHandlers
                 lapiPly.Health += damage;
             }
         }
-        
+
+        // public static void OnSpawningItem(SpawningItemEventArgs ev)
+        // {
+        //     if (ev.Pickup.Type == ItemType.Coin)
+        //     {
+        //         ev.ShouldInitiallySpawn = false;
+        //         ev.IsAllowed = false;
+        //     }
+        // }
+        //
+        // public static void OnFillingLocker(FillingLockerEventArgs ev)
+        // {
+        //     if (ev.Pickup.Type == ItemType.Coin)
+        //     {
+        //         ev.IsAllowed = false;
+        //     }
+        //     
+        // }
     }
 }

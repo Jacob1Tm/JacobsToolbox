@@ -10,7 +10,7 @@ public static class VampireEffect
     {
         if (ply.SessionVariables.ContainsKey("Vampire") || ply.Role.Type == RoleTypeId.Scp173 || ply.Role.Type == RoleTypeId.Scp049)
         {
-            ply.Broadcast(5,"Trafił*ś... Nic.");
+            CoinFlipEffect.CoinEffect(ply);
             return;
         }
         ply.Broadcast(5, "Został*ś ugryziony przez wampira! ");

@@ -11,6 +11,11 @@ public static class OldMansTouch
     
     public static void Apply(Player ply)
     {
+        if (ply.SessionVariables.ContainsKey("OldMansTouch"))
+        {
+            CoinFlipEffect.CoinEffect(ply);
+            return;
+        }
         ply.Broadcast(5, "Czujsz się jakby staruszek cię dotknął...");
         ply.EnableEffect<Ghostly>();
         ply.EnableEffect<Slowness>(30);

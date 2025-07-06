@@ -16,6 +16,6 @@ public class ScpTpEffect
             player.Broadcast(5, "Przywitaj się z kolegą!");
             return;
         }
-        player.Hurt(15);
+        CoinFlipEffect.CoinEffect(player);
     }
 }
