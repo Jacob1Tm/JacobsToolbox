@@ -142,5 +142,10 @@ namespace JacobsToolbox
             RoomType.LczToilets,
             RoomType.Surface,
         };
+
+        public int FakeCassieEffectChance { get; set; } = 1;
+        public int ShitPantsEffectChance { get; set; } = 1;
+        public int ScpTpEffectChance { get; set; } = 1;
+        public int VaseEffectChance { get; set; } = 1;
     }
 }

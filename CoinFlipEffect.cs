@@ -35,6 +35,10 @@ public static class CoinFlipEffect
         { CoinFlipEffects.PlayerScaleEffect.Apply, pconfig.PlayerScaleEffectChance },
         { CoinFlipEffects.InventoryResetEffect.Apply, pconfig.InventoryResetEffectChance},
         { CoinFlipEffects.RandomTpEffect.Apply, pconfig.RandomTpEffectChance },
+        { CoinFlipEffects.FakeCassieEffect.Apply, pconfig.FakeCassieEffectChance },
+        { CoinFlipEffects.ShitPantsEffect.Apply, pconfig.ShitPantsEffectChance },
+        { CoinFlipEffects.ScpTpEffect.Apply, pconfig.ScpTpEffectChance },
+        { CoinFlipEffects.VaseEffect.Apply, pconfig.VaseEffectChance },
     };
     public static void CoinEffect(Player ply)
     {
