@@ -7,6 +7,6 @@ public class BlackoutEffect
     public static void Apply(Player ply)
     {
         Map.TurnOffAllLights(Plugin.Instance.Config.BlackoutDuration);
-        ply.Broadcast(5, "Ciemno wszędzie, glucho wszędzie, co to będzie? co to będzie?");
+        Map.Broadcast(5, "Ciemno wszędzie, głucho wszędzie, co to będzie? co to będzie?");
     }
 }
