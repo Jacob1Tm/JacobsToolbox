@@ -147,5 +147,6 @@ namespace JacobsToolbox
         public int ShitPantsEffectChance { get; set; } = 1;
         public int ScpTpEffectChance { get; set; } = 1;
         public int VaseEffectChance { get; set; } = 1;
+        public int DelayedExplosionEffectChance { get; set; } = 1;
     }
 }

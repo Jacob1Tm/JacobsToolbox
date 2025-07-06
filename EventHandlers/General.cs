@@ -42,6 +42,10 @@ namespace JacobsToolbox.EventHandlers
                     IsFirstJoin = false;
                 }
             }
+            else
+            {
+                ev.Player.Broadcast(5, "Witaj na serwerze! Aktualnie mamy 30 efektów monetki \nMożesz je sugerować w wątku na #scp-sugesje na discordzie \nZajrzyj też na #scp-info");
+            }
         }
         public static void OnDeath(DiedEventArgs ev)
         {

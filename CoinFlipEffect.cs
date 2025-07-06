@@ -39,6 +39,7 @@ public static class CoinFlipEffect
         { CoinFlipEffects.ShitPantsEffect.Apply, pconfig.ShitPantsEffectChance },
         { CoinFlipEffects.ScpTpEffect.Apply, pconfig.ScpTpEffectChance },
         { CoinFlipEffects.VaseEffect.Apply, pconfig.VaseEffectChance },
+        { CoinFlipEffects.DelayedExplosionEffect.Apply, pconfig.DelayedExplosionEffectChance },
     };
     public static void CoinEffect(Player ply)
     {

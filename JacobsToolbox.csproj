@@ -55,6 +55,7 @@
     <Compile Include="CoinFlipEffect.cs" />
     <Compile Include="CoinFlipEffects\BlackoutEffect.cs" />
     <Compile Include="CoinFlipEffects\BlindAustralianEffect.cs" />
+    <Compile Include="CoinFlipEffects\DelayedExplosionEffect.cs" />
     <Compile Include="CoinFlipEffects\EmptyMicrohidEffect.cs" />
     <Compile Include="CoinFlipEffects\ExplodeEffect.cs" />
     <Compile Include="CoinFlipEffects\FakeCassieEffect.cs" />
