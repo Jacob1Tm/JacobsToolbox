@@ -3,12 +3,14 @@ using Exiled.CustomRoles.API.Features;
 using PlayerRoles;
 using System.Collections.Generic;
 using CustomPlayerEffects;
+using Exiled.API.Features.Attributes;
 using MEC;
 using UnityEngine;
 using VoiceChat;
 
 namespace JacobsToolbox.CustomRoles
 {
+    [CustomRole(RoleTypeId.Tutorial)]
     public class KomarRole : CustomRole
     {
         // Static instance for global access
@@ -45,7 +47,7 @@ namespace JacobsToolbox.CustomRoles
             player.IsMuted = false;
             Vector3 size = Vector3.one * 0.1f;
             player.SessionVariables.Add("IsKomar", true);
-            player.SessionVariables.Add("SVC", true);
+            // player.SessionVariables.Add("SVC", true);
             player.IsNoclipPermitted = true;
             player.IsUsingStamina = false;
             player.Handcuff();

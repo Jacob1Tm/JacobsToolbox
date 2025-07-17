@@ -122,7 +122,7 @@ namespace JacobsToolbox.EventHandlers
             {
                 Timing.CallDelayed(2f, () =>
                 {
-                    if (ev.IsTails) ev.Player.CurrentItem.Destroy();
+                    ev.Player.CurrentItem.Destroy();
                     CoinFlipEffect.CoinEffect(ev.Player);
                 
                     if (ev.IsTails)

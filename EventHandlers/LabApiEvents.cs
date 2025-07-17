@@ -1,4 +1,5 @@
-﻿using LabApi.Events.Arguments.PlayerEvents;
+﻿using Discord;
+using LabApi.Events.Arguments.PlayerEvents;
 using LabApi.Events.CustomHandlers;
 using Exiled.API.Features;
 using InventorySystem.Items.Keycards;
@@ -10,7 +11,9 @@ using UnityEngine;
 using UserSettings.ServerSpecific;
 using Utf8Json.Resolvers.Internal;
 using VoiceChat;
+using Map = Exiled.API.Features.Map;
 using Player = LabApi.Features.Wrappers.Player;
+using Round = Exiled.API.Features.Round;
 
 namespace JacobsToolbox.EventHandlers
 {
@@ -48,6 +51,12 @@ namespace JacobsToolbox.EventHandlers
                 ev.IsAllowed = false;
             }
             
+        }
+
+        public override void OnServerWaitingForPlayers()
+        {
+            if (Plugin.Instance.Config.AutoLock)
+                Round.IsLobbyLocked = true;
         }
     }
 }

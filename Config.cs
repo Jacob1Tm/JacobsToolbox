@@ -11,6 +11,9 @@ namespace JacobsToolbox
         public bool IsEnabled { get; set; } = true;
         public bool Debug { get; set; } = false;
 
+        [Description("Automaticly locks lobby on waiting for players.")]
+        public bool AutoLock { get; set; } = true;
+
         [Description("Sets the time in seconds before spectator can become a Komar after death.")]
         public int KomarRoleCooldown { get; set; } = 10;
 
