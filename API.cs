@@ -8,46 +8,6 @@ namespace JacobsToolbox
 {
     public static class API
     {
-        public static bool IsKomar(Player player)
-        {
-            if (player is null)
-                return false;
-
-            return player.SessionVariables.ContainsKey("IsKomar");
-        }
-        
-        public static bool IsKomar(ReferenceHub player)
-        {
-            if (player is null)
-                return false;
-
-            return IsKomar(Player.Get(player));
-        }
-        
-        public static bool IsVampire(Player player)
-        {
-            if (player is null)
-                return false;
-
-            return player.SessionVariables.ContainsKey("Vampire");
-        }
-        
-        public static bool IsVampire(ReferenceHub player)
-        {
-            if (player is null)
-                return false;
-
-            return IsVampire(Player.Get(player));
-        }
-        
-        public static bool IsOnSpectatorVC(Player player)
-        {
-            if (player is null)
-                return false;
-
-            return player.SessionVariables.ContainsKey("SVC");
-        }
-        
         public static T ChooseWeighted<T>(Dictionary<T, int> weights)
         {
             if (weights is null || weights.Count == 0)
