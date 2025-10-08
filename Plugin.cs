@@ -19,14 +19,16 @@ namespace JacobsToolbox
 {
     public class Plugin : Plugin<Config>
     {
-        private static Harmony _harmony;
         public static Plugin Instance;
-        internal static IEnumerable<SettingBase> _settings;
+        public Features.AutoLobbyLock AutoLobbyLock { get; } = new();
+        public Features.StartVotingSystem.Events StartVotingSystem { get; } = new();
 
         public override void OnEnabled()
         {
             Instance = this;
             base.OnEnabled();
+            CustomHandlersManager.RegisterEventsHandler(AutoLobbyLock);
+            CustomHandlersManager.RegisterEventsHandler(StartVotingSystem);
         }
 
         public override void OnDisabled()

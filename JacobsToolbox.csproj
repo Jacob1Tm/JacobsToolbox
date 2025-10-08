@@ -42,6 +42,9 @@
     <Reference Include="AudioPlayerApi">
       <HintPath>..\Plugins\dependencies\AudioPlayerApi.dll</HintPath>
     </Reference>
+    <Reference Include="HintServiceMeow">
+      <HintPath>\\host.lan\Data\.config\EXILED\Plugins\HintServiceMeow-Exiled.dll</HintPath>
+    </Reference>
     <Reference Include="Mirror">
       <HintPath>\\host.lan\Data\.var\app\com.valvesoftware.Steam\.local\share\Steam\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Mirror.dll</HintPath>
     </Reference>
@@ -63,7 +66,8 @@
   <ItemGroup>
     <Compile Include="API.cs" />
     <Compile Include="CoinFlipEffect.cs" />
-    <Compile Include="ConsoleCommands.cs" />
+    <Compile Include="Features\AutoLobbyLock.cs" />
+    <Compile Include="Features\StartVotingSystem.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

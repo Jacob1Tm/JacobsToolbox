@@ -10,5 +10,8 @@ namespace JacobsToolbox
     {
         public bool IsEnabled { get; set; } = true;
         public bool Debug { get; set; } = false;
+
+        public Features.AutoLobbyLock AutoLobbyLock { get; set; } = new();
+        public Features.StartVotingSystem StartVotingSystem { get; set; } = new();
     }
 }
