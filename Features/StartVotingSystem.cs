@@ -126,6 +126,7 @@ public class StartVotingSystem
 
         public override void OnPlayerJoined(PlayerJoinedEventArgs ev)
         {
+            if (Round.InProgress || !Plugin.Instance.Config.StartVotingSystem.IsEnabled) return;
             var playerDisplay = PlayerDisplay.Get(ev.Player);
             playerDisplay.AddHint(_voteCounter);
             UpdateCounter();
