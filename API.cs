@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Exiled.API.Features;
+using Exiled.CustomRoles.API;
 
 namespace JacobsToolbox
 {
@@ -28,6 +29,17 @@ namespace JacobsToolbox
             }
 
             throw new InvalidOperationException("No items to choose from.");
+        }
+
+        public static bool IsKomar(Player player)
+        {
+            foreach (var customRole in player.GetCustomRoles())
+            {
+                if (customRole.Id == Plugin.Instance.Config.KomarRole.Id)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

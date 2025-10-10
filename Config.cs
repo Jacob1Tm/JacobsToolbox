@@ -13,5 +13,7 @@ namespace JacobsToolbox
 
         public Features.AutoLobbyLock AutoLobbyLock { get; set; } = new();
         public Features.StartVotingSystem StartVotingSystem { get; set; } = new();
+        public Features.KomarRole KomarRole { get; set; } = new();
+        
     }
 }

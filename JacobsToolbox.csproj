@@ -67,7 +67,9 @@
     <Compile Include="API.cs" />
     <Compile Include="CoinFlipEffect.cs" />
     <Compile Include="Features\AutoLobbyLock.cs" />
+    <Compile Include="Features\KomarRole.cs" />
     <Compile Include="Features\StartVotingSystem.cs" />
+    <Compile Include="Patches\CheckSpawnPatch.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
