@@ -29,6 +29,7 @@ namespace JacobsToolbox.Features;
 [CustomRole(RoleTypeId.Tutorial)]
 public class KomarRole : CustomRole
 { 
+    public bool IsEnabled { get; set; } = true;
     public override string CustomInfo { get; set; } = "Komar"; 
     public override string Name { get; set; } = "Komar"; 
     public override string Description { get; set; } = "Flying little piece of shit."; 
@@ -275,7 +276,7 @@ public class KomarRole : CustomRole
                         break;
                     }
 
-                    ev.Player.Position = Room.Get(RoomType.Hcz096).Position + new Vector3(0, 1, 0);
+                    ev.Player.Position = Room.Get(RoomType.HczHid).Position + new Vector3(0, 1, 0);
                     break;
                 case ItemType.KeycardScientist:
                     if (Warhead.IsDetonated || Map.IsLczDecontaminated)
@@ -392,14 +393,20 @@ public class KomarRole : CustomRole
     }
 }
 
+[CommandHandler(typeof(ClientCommandHandler))]
 [CommandHandler(typeof(RemoteAdminCommandHandler))]
 public class Spawn : ICommand
 {
     public string Command { get; set; } = "spawnkomar";
     public string Description { get; } = "Rel";
-    public string[] Aliases { get; } = new[] { "komar" };
+    public string[] Aliases { get; } = new[] { "komar", "k" };
     public bool Execute(ArraySegment<string> arguments, ICommandSender sender, [UnscopedRef] out string response)
     {
+        if (!Plugin.Instance.Config.KomarRole.IsEnabled)
+        {
+            response = "Feature is disabled.";
+            return false;
+        }
         var player = Player.Get(sender);
         if (API.IsKomar(player))
         {
