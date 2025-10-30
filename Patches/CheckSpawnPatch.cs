@@ -1,4 +1,5 @@
-﻿using Respawning.Waves;
+using Exiled.API.Features;
+using Respawning.Waves;
 
 namespace JacobsToolbox.Patches
 {
@@ -12,7 +13,7 @@ namespace JacobsToolbox.Patches
     {
         internal static void Postfix(ReferenceHub player, ref bool __result)
         {
-            if (API.IsKomar(player))
+            if (API.IsKomar(Player.Get(player)))
             {
                 __result = true;
             }

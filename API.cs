@@ -3,51 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Exiled.API.Features;
+using Exiled.CustomRoles.API;
 
 namespace JacobsToolbox
 {
     public static class API
     {
-        public static bool IsKomar(Player player)
-        {
-            if (player is null)
-                return false;
-
-            return player.SessionVariables.ContainsKey("IsKomar");
-        }
-        
-        public static bool IsKomar(ReferenceHub player)
-        {
-            if (player is null)
-                return false;
-
-            return IsKomar(Player.Get(player));
-        }
-        
-        public static bool IsVampire(Player player)
-        {
-            if (player is null)
-                return false;
-
-            return player.SessionVariables.ContainsKey("Vampire");
-        }
-        
-        public static bool IsVampire(ReferenceHub player)
-        {
-            if (player is null)
-                return false;
-
-            return IsVampire(Player.Get(player));
-        }
-        
-        public static bool IsOnSpectatorVC(Player player)
-        {
-            if (player is null)
-                return false;
-
-            return player.SessionVariables.ContainsKey("SVC");
-        }
-        
         public static T ChooseWeighted<T>(Dictionary<T, int> weights)
         {
             if (weights is null || weights.Count == 0)
@@ -68,6 +29,17 @@ namespace JacobsToolbox
             }
 
             throw new InvalidOperationException("No items to choose from.");
+        }
+
+        public static bool IsKomar(Player player)
+        {
+            foreach (var customRole in player.GetCustomRoles())
+            {
+                if (customRole.Id == Plugin.Instance.Config.KomarRole.Id)
+                    return true;
+            }
+
+            return false;
         }
     }
 }
