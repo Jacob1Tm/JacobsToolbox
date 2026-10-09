@@ -10,6 +10,7 @@ using Exiled.CustomRoles.API;
 using Exiled.CustomRoles.API.Features;
 using Exiled.Events.EventArgs.Player;
 using Exiled.Events.EventArgs.Scp096;
+using Exiled.Events.EventArgs.Scp1507;
 using Exiled.Events.EventArgs.Scp173;
 using Exiled.Events.EventArgs.Scp939;
 using Exiled.Events.EventArgs.Server;
@@ -18,11 +19,15 @@ using HintServiceMeow.Core.Utilities;
 using PlayerRoles;
 using UnityEngine;
 using Hint = HintServiceMeow.Core.Models.Hints.Hint;
+using Map = Exiled.API.Features.Map;
+using Player = Exiled.API.Features.Player;
 using PlayerEventHandler = Exiled.Events.Handlers.Player;
 using Scp173EventHandler = Exiled.Events.Handlers.Scp173;
 using Scp096EventHandler = Exiled.Events.Handlers.Scp096;
 using Scp939EventHandler = Exiled.Events.Handlers.Scp939;
 using ServerEventHandler = Exiled.Events.Handlers.Server;
+using Scp1507EventHandler = Exiled.Events.Handlers.Scp1507;
+using Warhead = Exiled.API.Features.Warhead;
 
 namespace JacobsToolbox.Features;
 
@@ -40,6 +45,7 @@ public class KomarRole : CustomRole
     public override bool KeepRoleOnChangingRole { get; set; } = false;
     public override bool KeepRoleOnDeath { get; set; } = false;
     public override bool KeepPositionOnSpawn { get; set; } = false;
+    public bool PreventScpDamage { get; set; } = false;
     public override Vector3 Scale { get; set; } = new (0.1f, 0.1f, 0.1f);
 
     public override List<string> Inventory { get; set; } = new()
@@ -109,6 +115,9 @@ public class KomarRole : CustomRole
         PlayerEventHandler.Dying += OnDying;
         PlayerEventHandler.Left += OnPlayerLeft;
         ServerEventHandler.RespawningTeam += OnRespawningTeam;
+        PlayerEventHandler.Hurting += OnPlayerHurting;
+        Scp1507EventHandler.AttackingDoor += OnAttackingDoor;
+        Scp1507EventHandler.Screaming += OnScreaming;
         
         
         base.SubscribeEvents();
@@ -145,6 +154,9 @@ public class KomarRole : CustomRole
         PlayerEventHandler.Dying -= OnDying;
         PlayerEventHandler.Left -= OnPlayerLeft;
         ServerEventHandler.RespawningTeam -= OnRespawningTeam;
+        PlayerEventHandler.Hurting -= OnPlayerHurting;
+        Scp1507EventHandler.AttackingDoor -= OnAttackingDoor;
+        Scp1507EventHandler.Screaming -= OnScreaming;
         
         base.UnsubscribeEvents();
     }
@@ -167,6 +179,36 @@ public class KomarRole : CustomRole
             ev.IsAllowed = false;
     }
 
+    // Only for using komar as a flamingo
+    private void OnPlayerHurting(HurtingEventArgs ev)
+    {
+        if (Check(ev.Attacker))
+        {
+            if (ev.Player.IsScp && PreventScpDamage)
+            {
+                ev.IsAllowed = false;
+            }
+
+            else
+            {
+                Log.Debug("Komar tried to deal damage, reducing to 0.1f");
+                ev.DamageHandler.Damage = 0.1f;
+            }
+        }
+    }
+
+    private void OnAttackingDoor(AttackingDoorEventArgs ev)
+    {
+        if (Check(ev.Player))
+            ev.IsAllowed = false;
+    }
+
+    private void OnScreaming(ScreamingEventArgs ev)
+    {
+        if (Check(ev.Player))
+            ev.IsAllowed = false;
+    }
+    
     private void OnPickingUpItem(PickingUpItemEventArgs ev)
     {
         if (Check(ev.Player))
@@ -391,6 +433,7 @@ public class KomarRole : CustomRole
     {
         ev.Players.AddRange(Player.Get(API.IsKomar));
     }
+    
 }
 
 [CommandHandler(typeof(ClientCommandHandler))]

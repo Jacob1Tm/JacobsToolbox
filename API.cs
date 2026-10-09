@@ -1,14 +1,34 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Exiled.API.Features;
 using Exiled.CustomRoles.API;
+using PlayerRoles;
 
 namespace JacobsToolbox
 {
     public static class API
     {
+        private static int _debugDummyCounter;
+
+        /// <summary>
+        /// Spawns a lobby-like debug dummy: Spectator role, NOT ignored, default spawn position,
+        /// so it behaves as close to a freshly joined lobby player as possible.
+        /// </summary>
+        public static Npc SpawnDebugDummy(string name)
+        {
+            return Npc.Spawn(name, RoleTypeId.Spectator);
+        }
+
+        /// <summary>
+        /// Spawns a lobby-like debug dummy with an auto-generated unique name.
+        /// </summary>
+        public static Npc SpawnDebugDummy()
+        {
+            return SpawnDebugDummy($"DebugDummy-{++_debugDummyCounter}");
+        }
+
         public static T ChooseWeighted<T>(Dictionary<T, int> weights)
         {
             if (weights is null || weights.Count == 0)
